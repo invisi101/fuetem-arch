@@ -4,9 +4,16 @@ LIBDIR    = $(PREFIX)/lib/fuetem
 SHAREDIR  = $(PREFIX)/share/fuetem
 APPDIR    = $(PREFIX)/share/applications
 
-.PHONY: install uninstall
+DEPS      = bash pacman-contrib bind iproute2 coreutils systemd smartmontools nmap lm_sensors arch-audit gitleaks
 
-install:
+.PHONY: install install-files uninstall deps
+
+deps:
+	sudo pacman -S --needed --noconfirm $(DEPS)
+
+install: deps install-files
+
+install-files:
 	install -d $(BINDIR) $(LIBDIR) $(SHAREDIR)
 	install -m 755 bin/fuetem $(BINDIR)/fuetem
 	install -m 644 lib/lib.sh $(LIBDIR)/lib.sh
@@ -17,7 +24,8 @@ install:
 	install -m 755 lib/sysmonitor.sh $(LIBDIR)/sysmonitor.sh
 	install -m 644 assets/arch.png $(SHAREDIR)/arch.png
 	install -d $(APPDIR)
-	install -m 644 assets/fuetem.desktop $(APPDIR)/fuetem.desktop
+	sed 's|Icon=.*|Icon=$(SHAREDIR)/arch.png|' assets/fuetem.desktop > $(APPDIR)/fuetem.desktop
+	chmod 644 $(APPDIR)/fuetem.desktop
 	@echo ""
 	@echo "Installed to $(PREFIX). Make sure $(BINDIR) is in your PATH."
 

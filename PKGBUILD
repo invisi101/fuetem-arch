@@ -6,24 +6,17 @@ pkgdesc="Arch Linux system maintenance console — cleanup, health, security, mo
 arch=('any')
 url="https://github.com/invisi101/fuetem-arch"
 license=('GPL-3.0-only')
-depends=('bash' 'pacman-contrib' 'bind' 'iproute2' 'coreutils' 'systemd')
+depends=('bash' 'pacman-contrib' 'bind' 'iproute2' 'coreutils' 'systemd'
+         'smartmontools' 'nmap' 'lm_sensors' 'arch-audit' 'gitleaks')
 optdepends=(
-  'smartmontools: NVMe SMART health checks'
-  'nmap: LAN network scanning'
-  'lm_sensors: temperature monitoring in system monitor'
   'btrfs-progs: btrfs filesystem checks'
   'wl-clipboard: clipboard-based checksum detection'
-  'arch-audit: CVE vulnerability scanning'
   'aide: file integrity monitoring'
   'audit: auditd security event analysis'
-  'gitleaks: git secret scanning'
   'trufflehog: git secret scanning'
   'yay: AUR update checking and cache cleanup'
   'chezmoi: dotfile drift detection'
   'flatpak: flatpak cleanup support'
-  'kitty: terminal emulator for system monitor window'
-  'alacritty: terminal emulator for system monitor window'
-  'foot: terminal emulator for system monitor window'
 )
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
 sha256sums=('e5fdf7b2a74aeb0f1cb2954eb466c2bd24eb58c833c513d413db845b3f1bf030')
