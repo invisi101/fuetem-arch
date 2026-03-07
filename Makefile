@@ -2,6 +2,7 @@ PREFIX    ?= $(HOME)/.local
 BINDIR    = $(PREFIX)/bin
 LIBDIR    = $(PREFIX)/lib/fuetem
 SHAREDIR  = $(PREFIX)/share/fuetem
+APPDIR    = $(PREFIX)/share/applications
 
 .PHONY: install uninstall
 
@@ -15,6 +16,8 @@ install:
 	install -m 755 lib/integrity_check.sh $(LIBDIR)/integrity_check.sh
 	install -m 755 lib/sysmonitor.sh $(LIBDIR)/sysmonitor.sh
 	install -m 644 assets/arch.png $(SHAREDIR)/arch.png
+	install -d $(APPDIR)
+	install -m 644 assets/fuetem.desktop $(APPDIR)/fuetem.desktop
 	@echo ""
 	@echo "Installed to $(PREFIX). Make sure $(BINDIR) is in your PATH."
 
@@ -22,4 +25,5 @@ uninstall:
 	rm -f $(BINDIR)/fuetem
 	rm -rf $(LIBDIR)
 	rm -rf $(SHAREDIR)
+	rm -f $(APPDIR)/fuetem.desktop
 	@echo "Uninstalled fuetem from $(PREFIX)."
