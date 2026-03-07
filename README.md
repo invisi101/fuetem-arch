@@ -17,12 +17,12 @@
 | 7 | **Integrity Check** | AIDE, pacman file integrity, arch-audit CVEs, auditd analysis, SUID/SGID scan |
 | 8 | **Network Port Scan** | Local listening ports + optional nmap LAN sweep |
 | 9 | **VPN Check** | ProtonVPN leak audit — IP, DNS, IPv6, STUN, ad/tracker blocking scorecard |
-| 10 | **Secret Scan** | TruffleHog + Gitleaks across all local git repos |
+| 10 | **Secret Scan** | TruffleHog / Gitleaks across all local git repos |
 | 11 | **Verify File Checksum** | SHA-256 verification with clipboard auto-detect |
 
 ## Install
 
-There are two ways to install fuetem. Both install all dependencies automatically.
+There are two ways to install fuetem. Both install core dependencies automatically.
 
 ### Option 1: From AUR (recommended)
 
@@ -179,7 +179,7 @@ Produces timestamped text and CSV reports in the logs directory.
 
 ### 10. Secret Scan
 
-Scans every git repository under your home directory for accidentally committed secrets (API keys, passwords, tokens, private keys) using two tools:
+Scans every git repository under your home directory for accidentally committed secrets (API keys, passwords, tokens, private keys). Runs whichever of these tools are available:
 
 - **TruffleHog** — scans git history for high-entropy strings and known secret patterns, distinguishing between verified (confirmed live) and unverified secrets.
 - **Gitleaks** — pattern-based scanning using a comprehensive ruleset for common secret formats.
@@ -199,11 +199,12 @@ Verifying checksums after downloading ISOs, firmware, or security-critical softw
 
 ## Dependencies
 
-All dependencies are installed automatically by both install methods.
+Core dependencies are installed automatically by both install methods.
 
 | Package | Used by |
 |---------|---------|
 | `bash` | Shell |
+| `curl` | VPN check, public IP lookup |
 | `pacman-contrib` | `paccache`, `checkupdates` |
 | `bind` | DNS queries, VPN leak check |
 | `iproute2` | Network info, port scanning |

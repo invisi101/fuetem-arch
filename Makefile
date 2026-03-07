@@ -5,7 +5,7 @@ SHAREDIR  = $(PREFIX)/share/fuetem
 APPDIR    = $(PREFIX)/share/applications
 
 DESTDIR   ?=
-DEPS      = bash pacman-contrib bind iproute2 coreutils systemd smartmontools nmap lm_sensors arch-audit gitleaks
+DEPS      = bash curl pacman-contrib bind iproute2 coreutils systemd smartmontools nmap lm_sensors arch-audit gitleaks
 
 .PHONY: install install-files uninstall deps
 

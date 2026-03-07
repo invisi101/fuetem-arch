@@ -6,7 +6,7 @@ pkgdesc="Arch Linux system maintenance console — cleanup, health, security, mo
 arch=('any')
 url="https://github.com/invisi101/fuetem-arch"
 license=('GPL-3.0-only')
-depends=('bash' 'pacman-contrib' 'bind' 'iproute2' 'coreutils' 'systemd'
+depends=('bash' 'curl' 'pacman-contrib' 'bind' 'iproute2' 'coreutils' 'systemd'
          'smartmontools' 'nmap' 'lm_sensors' 'arch-audit' 'gitleaks')
 optdepends=(
   'btrfs-progs: btrfs filesystem checks'
