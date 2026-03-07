@@ -199,7 +199,9 @@ Verifying checksums after downloading ISOs, firmware, or security-critical softw
 
 ## Dependencies
 
-Core dependencies are installed automatically by both install methods.
+### Auto-installed
+
+These are installed automatically whether you use `yay -S fuetem-arch` or `make install`:
 
 | Package | Used by |
 |---------|---------|
@@ -216,7 +218,9 @@ Core dependencies are installed automatically by both install methods.
 | `arch-audit` | CVE vulnerability scanning |
 | `gitleaks` | Git secret scanning |
 
-The following are not in the official repos or have heavier footprints. They are not installed automatically — install them manually if you need the features they enable.
+### Optional
+
+Not installed automatically. Install manually if you want the features they enable.
 
 | Package | Used by |
 |---------|---------|
