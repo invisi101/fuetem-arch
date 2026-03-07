@@ -14,9 +14,9 @@ echo ""
 ##########################################
 # 🧪 AIDE Check
 ##########################################
-if command -v aide.wrapper >/dev/null 2>&1; then
+if command -v aide >/dev/null 2>&1; then
     echo "📁 AIDE File Integrity Check"
-    sudo aide.wrapper --check > "$AIDE_LOG" 2>/dev/null
+    sudo aide --check > "$AIDE_LOG" 2>/dev/null
 
     if grep -qE "added|removed|changed" "$AIDE_LOG"; then
         echo "⚠️  AIDE detected file changes:"
